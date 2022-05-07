@@ -35,12 +35,22 @@ public class TestNGITestListener extends TestBase implements ITestListener {
 	public void onTestFailure(ITestResult result) {
 		extentTest.get().fail(result.getThrowable());		
 		methodName =  result.getMethod().getMethodName();
-		
 		try {
 			driver = (WebDriver) result.getTestClass().getRealClass().getDeclaredField("driver").get(result.getInstance());
-		} catch (Exception e) {
-			e.printStackTrace();
-		} 
+		} catch (IllegalArgumentException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		} catch (IllegalAccessException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		} catch (NoSuchFieldException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		} catch (SecurityException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		
 		try {
 			extentTest.get().addScreenCaptureFromPath(getScreenShotPath(methodName,driver), result.getMethod().getMethodName());
 			//captureScreenshot(driver, methodName+"_Failed");
@@ -61,7 +71,6 @@ public class TestNGITestListener extends TestBase implements ITestListener {
 		try {
 			captureScreenshot(driver, methodName+"_Skipped");
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
