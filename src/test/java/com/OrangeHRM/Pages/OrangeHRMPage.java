@@ -60,7 +60,7 @@ public class OrangeHRMPage {
         return MyInfo.getText();   
     }
     
-    @FindBy(xpath="//*[@id=\"content\"]/div[1]/div[1]/h1")
+    @FindBy(xpath="//*[@id='content']/div[1]/div[1]/h1")
     WebElement SelectEmplyee;
     public String GetTimePageHeadertext()
     {
@@ -70,7 +70,7 @@ public class OrangeHRMPage {
     @FindBy(id="menu_admin_Job")
     WebElement JobLink;
     
-    public void clickonJobLink() {
+    public void clickOnJobLink() {
     	JobLink.click();
     }
     

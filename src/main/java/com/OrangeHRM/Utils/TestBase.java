@@ -38,7 +38,6 @@ public class TestBase {
 			driver.manage().window().maximize();
 		}else if(prop.getProperty("browser").contains("firefox")){
 			driver=new FirefoxDriver();
-			//will include code if needed.
 		}else {
 			driver=new InternetExplorerDriver();
 		}
